@@ -8,6 +8,7 @@ export const Container = styled.div`
     top: 25px; */
     left: ${props => props.gp.gp.x };
     top: ${props => props.gp.gp.y};
+
 `
 
 export const OuterCircleAccent = styled.div`

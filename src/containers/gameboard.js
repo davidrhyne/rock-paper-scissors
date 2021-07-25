@@ -8,7 +8,7 @@ export default function GameboardContainer( {children, ...restProps}) {
     const gamepieces = useGamepieceData();
     let currentGamepieces = []
     const gamemode = useGamemode()
-
+    
 
 
     if (isLoading) {
@@ -56,9 +56,9 @@ export default function GameboardContainer( {children, ...restProps}) {
                     </>
                 }
 
-            <Gameboard.BackgroundLogo 
+            {/* <Gameboard.BackgroundLogo 
                 src="images/bg-pentagon.svg"
-            />
+            /> */}
         </Gameboard>
         
     )
