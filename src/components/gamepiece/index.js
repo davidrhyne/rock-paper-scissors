@@ -3,20 +3,24 @@ import { Container, Logo, OuterCircleAccent, OuterCircle, InnerCircleAccent, Inn
 import { COLOR_SCHEME } from '../../constants/constants'
 
 
-export default function Gamepiece({gamepiece, children, ...restProps}) {  
+export default function Gamepiece({gp, gamepiece, children, ...restProps}) {  
     
     function handleClick() {
         console.log('button got clicked = ', gamepiece)
     }
     
-    function getOuterColor(gamepiece) {
-        return gamepiece === 'PAPER' ? COLOR_SCHEME.PAPER_ACCENT : 'yellow'
-    }
+    // function getOuterColor(gamepiece) {
+    //     console.log('get color gamepiece = ', gamepiece)
+    //     console.log(COLOR_SCHEME.PAPER_ACCENT)
+    //     return gamepiece === 'PAPER' ? COLOR_SCHEME.PAPER_ACCENT : 'yellow'
+    // }
+
+    // console.log('gp = ', gp )
 
     return (
-        <Container {...restProps} onClick={handleClick}>{children}
-            <Gamepiece.OuterCircleAccent>
-                <Gamepiece.OuterCircle OuterColor={getOuterColor(gamepiece)}>
+        <Container {...restProps} gp={{gp}} onClick={handleClick}>{children}
+            <Gamepiece.OuterCircleAccent gp={{gp}} >
+                <Gamepiece.OuterCircle gp={{gp}} >
                     <Gamepiece.InnerCircleAccent>
                         <Gamepiece.InnerCircle>
                             

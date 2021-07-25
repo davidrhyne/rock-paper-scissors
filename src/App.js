@@ -1,4 +1,6 @@
 import React from 'react';
+import { GamepieceContextProvider } from './context/GamepieceContext'
+import { GamemodeContextProvider } from './context/GamemodeContext'
 import { createGlobalStyle } from 'styled-components'
 import { COLOR_SCHEME, FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from './constants/constants'
 import { Home } from './pages'
@@ -21,10 +23,12 @@ function App() {
   }
 `
   return (
-    <div>
-      <GlobalStyle />
-      <Home />
-    </div>
+    <GamepieceContextProvider>
+      <GamemodeContextProvider>
+        <GlobalStyle />
+        <Home />
+      </GamemodeContextProvider>
+    </GamepieceContextProvider>
   )
 }
 

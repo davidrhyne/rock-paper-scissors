@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Logo, ScoreContainer, ScoreLabel, ScoreText } from './styles/scoreboard'
+import { useGamemode, useGamemodeUpdate } from '../../context/GamemodeContext'
 
 export default function Scoreboard({children, ...restProps}) {  
     return (
@@ -8,8 +9,18 @@ export default function Scoreboard({children, ...restProps}) {
 }
 
 Scoreboard.Logo = function ScoreboardLogo({ children, ...restProps}) {
+    
+    const gamemode = useGamemode()
+    const updateGameMode = useGamemodeUpdate()
+
+    //console.log('game mode = ', gamemode)
+    
+    function handleLogoClick() {
+        const newGamemode = gamemode === 'classic' ? 'bonus' : 'classic'
+        updateGameMode(newGamemode)
+    }
     return (
-        <Logo {...restProps}>{children}</Logo>
+        <Logo {...restProps} onClick={handleLogoClick}>{children}</Logo>
     )
 }
 

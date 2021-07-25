@@ -1,28 +1,28 @@
 import styled from 'styled-components';
-import { COLOR_SCHEME, FONT_FAMILY, FONT_WEIGHT, BREAKPOINT, FONT_SIZE } from '../../../constants/constants'
+import { COLOR_SCHEME, BREAKPOINT } from '../../../constants/constants'
 
 export const Container = styled.div`
     position: relative;
     position: absolute;
     /* left: 150px;
     top: 25px; */
-    left: ${props => props.x};
-    top: ${props => props.y};
+    left: ${props => props.gp.gp.x };
+    top: ${props => props.gp.gp.y};
 `
 
 export const OuterCircleAccent = styled.div`
     width: 130px;
     height: 133px;
     border-radius: 50%;
-    background: ${props => props.OuterColor};
+    background: ${props => props.gp.gp.piece_accent };
 `
 export const OuterCircle = styled.div`
     width: 130px;
     height: 126px;
     border-radius: 50%;
-    background: linear-gradient(
-        ${COLOR_SCHEME.PAPER_START}, 
-        ${COLOR_SCHEME.PAPER_END});
+    background: ${ props => `linear-gradient(
+        ${props.gp.gp.piece_start}, 
+        ${props.gp.gp.piece_end})`};
     display: flex;
     justify-content: center;
 `
