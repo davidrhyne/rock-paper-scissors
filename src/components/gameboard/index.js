@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { Container, BackgroundLogo } from './styles/gameboard'
 
 export default function Gameboard({children, ...restProps}) {  
@@ -8,7 +8,8 @@ export default function Gameboard({children, ...restProps}) {
 }
 
 Gameboard.BackgroundLogo = function GameboardBackgroundLogo({ ...restProps}) {
+    const logoRef = useRef(null)
     return (
-        <BackgroundLogo {...restProps} />
+        <BackgroundLogo ref={logoRef} {...restProps} />
     )
 }

@@ -1,13 +1,25 @@
 import styled from 'styled-components';
 import { COLOR_SCHEME, BREAKPOINT } from '../../../constants/constants'
 
-export const Container = styled.div`
+
+export const Layout = styled.div`
     position: relative;
+    border: 1px yellow solid;
+    margin: 0 auto;
+    height: 100px;
+    width: 400px;
+
+`
+
+export const Container = styled.div`
+    grid-area: gamepiece;
     position: absolute;
     /* left: 150px;
     top: 25px; */
-    left: ${props => props.gp.gp.x };
-    top: ${props => props.gp.gp.y};
+    /* left: ${props => props.gp.gp.x };
+    top: ${props => props.gp.gp.y}; */
+    left: 10px;
+    top: 20px;
 
 `
 

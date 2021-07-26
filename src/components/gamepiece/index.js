@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Logo, OuterCircleAccent, OuterCircle, InnerCircleAccent, InnerCircle } from './styles/gamepiece'
+import { Layout, Container, Logo, OuterCircleAccent, OuterCircle, InnerCircleAccent, InnerCircle } from './styles/gamepiece'
 import { COLOR_SCHEME } from '../../constants/constants'
 
 
@@ -18,17 +18,25 @@ export default function Gamepiece({gp, gamepiece, children, ...restProps}) {
     // console.log('gp = ', gp )
 
     return (
-        <Container {...restProps} gp={{gp}} onClick={handleClick}>{children}
-            <Gamepiece.OuterCircleAccent gp={{gp}} >
-                <Gamepiece.OuterCircle gp={{gp}} >
-                    <Gamepiece.InnerCircleAccent>
-                        <Gamepiece.InnerCircle>
-                            
-                        </Gamepiece.InnerCircle>
-                    </Gamepiece.InnerCircleAccent>
-                </Gamepiece.OuterCircle>
-            </Gamepiece.OuterCircleAccent>        
-        </Container>
+        <Layout>
+            <Container {...restProps} gp={{gp}} onClick={handleClick}>{children}
+                <Gamepiece.OuterCircleAccent gp={{gp}} >
+                    <Gamepiece.OuterCircle gp={{gp}} >
+                        <Gamepiece.InnerCircleAccent>
+                            <Gamepiece.InnerCircle>
+                                
+                            </Gamepiece.InnerCircle>
+                        </Gamepiece.InnerCircleAccent>
+                    </Gamepiece.OuterCircle>
+                </Gamepiece.OuterCircleAccent>        
+            </Container>
+        </Layout>
+    )
+}
+
+Gamepiece.Layout = function GamepieceLayout({children, ...restProps}) {
+    return (
+        <Layout {...restProps}>{children}</Layout>
     )
 }
 

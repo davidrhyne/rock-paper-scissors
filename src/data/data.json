@@ -2,8 +2,8 @@
   {
     "name": "PAPER",
     "game":"classic",
-    "x":"25%",
-    "y":"3%", 
+    "x":"1%",
+    "y":"5%", 
     "piece_accent":"#2A45C2",
     "piece_start":"hsl(230, 89%, 65%)",
     "piece_end":"hsl(230, 89%, 62%)",
@@ -12,8 +12,8 @@
   {
     "name": "SCISSORS",
     "game":"classic",
-    "x":"55%",
-    "y":"3%", 
+    "x":"100%",
+    "y":"5%", 
     "piece_accent":"#C76C1B",
     "piece_start":"hsl(40, 84%, 53%)",
     "piece_end":"hsl(39, 89%, 49%)",
@@ -22,8 +22,8 @@
   {
     "name": "ROCK",
     "game":"classic",
-    "x":"40%",
-    "y":"30%", 
+    "x":"50%",
+    "y":"50%", 
     "piece_accent":"#9D1634",
     "piece_start":"hsl(349, 70%, 56%)",
     "piece_end":"hsl(349, 71%, 52%)",
