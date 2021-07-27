@@ -1,7 +1,8 @@
 import React from 'react'
 import { Layout, Container, Logo, OuterCircleAccent, OuterCircle, InnerCircleAccent, InnerCircle } from './styles/gamepiece'
 import { COLOR_SCHEME } from '../../constants/constants'
-
+import { useGamepieceData, useIsLoading } from '../../context/GamepieceContext'
+import { useGamemode } from '../../context/GamemodeContext'
 
 export default function Gamepiece({gp, gamepiece, children, ...restProps}) {  
     
@@ -18,7 +19,7 @@ export default function Gamepiece({gp, gamepiece, children, ...restProps}) {
     // console.log('gp = ', gp )
 
     return (
-        <Layout>
+
             <Container {...restProps} gp={{gp}} onClick={handleClick}>{children}
                 <Gamepiece.OuterCircleAccent gp={{gp}} >
                     <Gamepiece.OuterCircle gp={{gp}} >
@@ -30,13 +31,49 @@ export default function Gamepiece({gp, gamepiece, children, ...restProps}) {
                     </Gamepiece.OuterCircle>
                 </Gamepiece.OuterCircleAccent>        
             </Container>
-        </Layout>
+
     )
 }
 
 Gamepiece.Layout = function GamepieceLayout({children, ...restProps}) {
+
+    const isLoading = useIsLoading();
+    const gamepieces = useGamepieceData();
+    let currentGamepieces = []
+    const gamemode = useGamemode()
+    
+
+
+    if (isLoading) {
+        console.log('currenting loading data')
+    } else {
+        console.log('gamepieces = ', gamepieces)
+        console.log('gamemode = ', gamemode)
+        currentGamepieces = gamepieces.filter(gamepiece => gamepiece.game === gamemode)
+        console.log('currentGamepieces = ', currentGamepieces)
+    }
+
+
     return (
-        <Layout {...restProps}>{children}</Layout>
+        <Layout gamemode={gamemode} {...restProps}>
+                {console.log("layout loading")}
+                        { isLoading ? 
+                    <div>game data is loading... your patience is appreciated</div> :
+                    <>
+                        {currentGamepieces.map(gamepiece => {
+                            console.log('loading gamepiece = ', gamepiece)
+                            return (
+                                <Gamepiece key={gamepiece.name}  gp={gamepiece} gamepiece={gamepiece.name} >
+                                
+                                    <Gamepiece.Logo src={`images/icon-${gamepiece.name}.svg` } alt={gamepiece.name} />
+                                </Gamepiece>
+                            )
+                        })
+                        }
+                    </>
+                }
+            {children}
+        </Layout>
     )
 }
 

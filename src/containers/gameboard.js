@@ -23,7 +23,8 @@ export default function GameboardContainer( {children, ...restProps}) {
 
     return (        
         <Gameboard>
-            <Gameboard.BackgroundLogo src="images/bg-triangle.svg" />
+            {/* <Gameboard.BackgroundLogo src="images/bg-triangle.svg" /> */}
+            <Gamepiece.Layout />
 
                 {/* <Gamepiece x={'150px'} y={'20px'} gamepiece={'PAPER'}>
                     <Gamepiece.Logo src="images/icon-paper.svg" alt="paper" />
@@ -35,7 +36,7 @@ export default function GameboardContainer( {children, ...restProps}) {
                     <Gamepiece.Logo src="images/icon-rock.svg" alt="rock"  />
                 </Gamepiece> */}
             
-                { isLoading ? 
+                {/* { isLoading ? 
                     <div>game data is loading... your patience is appreciated</div> :
                     <>
                         {currentGamepieces.map(gamepiece => {
@@ -47,14 +48,9 @@ export default function GameboardContainer( {children, ...restProps}) {
                                 </Gamepiece>
                             )
                         })
-                        
-                        
-                        
-                        
-                        
                         }
                     </>
-                }
+                } */}
 
             {/* <Gameboard.BackgroundLogo 
                 src="images/bg-pentagon.svg"

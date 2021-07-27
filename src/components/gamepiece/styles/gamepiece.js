@@ -6,9 +6,16 @@ export const Layout = styled.div`
     position: relative;
     border: 1px yellow solid;
     margin: 0 auto;
-    height: 100px;
-    width: 400px;
-
+    height: 50vh;
+    width: 50vw;
+    background-image: ${props => props.gamemode === 'classic' ? 
+        "url('images/bg-triangle.svg')"  : 
+        "url('images/bg-pentagon.svg')" };
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    background-position-y: 50%;
+    background-position-x: 50%;
+    
 `
 
 export const Container = styled.div`
@@ -16,10 +23,10 @@ export const Container = styled.div`
     position: absolute;
     /* left: 150px;
     top: 25px; */
-    /* left: ${props => props.gp.gp.x };
-    top: ${props => props.gp.gp.y}; */
-    left: 10px;
-    top: 20px;
+    left: ${props => `calc(${props.gp.gp.x} - 133px)`};
+    top: ${props => props.gp.gp.y};
+    /* left: 10px;
+    top: 20px; */
 
 `
 
