@@ -1,5 +1,5 @@
 import React from 'react'
-import { Layout, Container, Logo, OuterCircleAccent, OuterCircle, InnerCircleAccent, InnerCircle } from './styles/gamepiece'
+import { BackgroundLogo, Layout, Container, Logo, OuterCircleAccent, OuterCircle, InnerCircleAccent, InnerCircle } from './styles/gamepiece'
 import { COLOR_SCHEME } from '../../constants/constants'
 import { useGamepieceData, useIsLoading } from '../../context/GamepieceContext'
 import { useGamemode } from '../../context/GamemodeContext'
@@ -56,6 +56,7 @@ Gamepiece.Layout = function GamepieceLayout({children, ...restProps}) {
 
     return (
         <Layout gamemode={gamemode} {...restProps}>
+            {/* <Gamepiece.BackgroundLogo src={'images/bg-triangle.svg  '}/> */}
                 {console.log("layout loading")}
                         { isLoading ? 
                     <div>game data is loading... your patience is appreciated</div> :
@@ -74,6 +75,12 @@ Gamepiece.Layout = function GamepieceLayout({children, ...restProps}) {
                 }
             {children}
         </Layout>
+    )
+}
+
+Gamepiece.BackgroundLogo = function GamepieceBackgroundLogo({ ...restProps}) {
+    return (
+        <BackgroundLogo {...restProps} />
     )
 }
 

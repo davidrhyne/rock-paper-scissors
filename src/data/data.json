@@ -2,7 +2,7 @@
   {
     "name": "PAPER",
     "game":"classic",
-    "x":"133px",
+    "x":"10%",
     "y":"3%", 
     "piece_accent":"#2A45C2",
     "piece_start":"hsl(230, 89%, 65%)",
@@ -12,7 +12,7 @@
   {
     "name": "SCISSORS",
     "game":"classic",
-    "x":"95%",
+    "x":"65%",
     "y":"3%", 
     "piece_accent":"#C76C1B",
     "piece_start":"hsl(40, 84%, 53%)",
@@ -22,8 +22,8 @@
   {
     "name": "ROCK",
     "game":"classic",
-    "x":"50%",
-    "y":"50%", 
+    "x":"35%",
+    "y":"60%", 
     "piece_accent":"#9D1634",
     "piece_start":"hsl(349, 70%, 56%)",
     "piece_end":"hsl(349, 71%, 52%)",
