@@ -4,6 +4,9 @@ import { GamemodeContextProvider } from './context/GamemodeContext'
 import { createGlobalStyle } from 'styled-components'
 import { COLOR_SCHEME, FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from './constants/constants'
 import { Home } from './pages'
+import { UserChoiceContextProvider } from './context/UserChoiceContext';
+import { GameRunningContextProvider } from './context/GameRunningContext'
+import { ComputerChoiceContextProvider } from './context/ComputerChoiceContext';
 
 function App() {
 
@@ -23,12 +26,18 @@ function App() {
   }
 `
   return (
-    <GamepieceContextProvider>
-      <GamemodeContextProvider>
-        <GlobalStyle />
-        <Home />
-      </GamemodeContextProvider>
-    </GamepieceContextProvider>
+    <GameRunningContextProvider>
+      <GamepieceContextProvider>
+        <GamemodeContextProvider>
+          <UserChoiceContextProvider>
+          <ComputerChoiceContextProvider>
+              <GlobalStyle />
+              <Home />
+            </ComputerChoiceContextProvider>
+          </UserChoiceContextProvider>
+        </GamemodeContextProvider>
+      </GamepieceContextProvider>
+    </GameRunningContextProvider>
   )
 }
 

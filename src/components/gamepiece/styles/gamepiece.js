@@ -11,14 +11,23 @@ export const Layout = styled.div`
     
     /* min-width: fit-content;
     max-height: fit-content; */
-    
-    background-image: ${props => props.gamemode === 'classic' ? 
+
+    /* background-image: ${props => props.gamemode === 'classic' ? 
         "url('images/bg-triangle.svg')"  : 
-        "url('images/bg-pentagon.svg')" }; 
+        "url('images/bg-pentagon.svg')" };  */
+    
+    ${props => props.isGameRunning === false && props.gamemode === 'classic' && `
+        background-image: url('images/bg-triangle.svg');
+    `}
+
+    ${props => props.isGameRunning === false && props.gamemode !== 'classic' && `
+        background-image: url('images/bg-pentagon.svg');
+    `}
+
     background-repeat: no-repeat;
-    background-size: 50% 50%;
-    background-position-y: 50%;
-    background-position-x: 50%; 
+        background-size: 50% 50%;
+        background-position-y: 50%;
+        background-position-x: 50%;
 
     /* @media (min-width: 500px) {
         height: 40vh;
@@ -27,13 +36,53 @@ export const Layout = styled.div`
 
     padding: 2em;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+
+    ${props => props.userChoice === null && `
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr 50px 1fr;
+        grid-template-areas: 
+            "paper paper . scissors scissors "
+            ". . . . ."
+            ". rock rock rock ."      
+        ;
+    `} 
+
+    ${props => props.userChoice === 'PAPER' && `
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "paper . dummy"  
+        ;
+    `} 
+
+    ${props => props.userChoice === 'ROCK' && `
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "rock . dummy"  
+        ;
+    `} 
+
+    ${props => props.userChoice === 'SCISSORS' && `
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "scissors . dummy"  
+        ;
+    `} 
+
+    ${props => props.userChoice === 'PAPER' && props.computerChoice !== null && `
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "paper . rock"  
+        ;
+        background: dodgerblue;
+    `} 
+
+    /* grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 50px 1fr;
     grid-template-areas: 
-        "paper paper . scissors scissors "
+        "paper paper . scissors scissors "  
         ". . . . ."
         ". rock rock rock ."      
-    ;
+    ; */
     
 `
 
@@ -74,6 +123,12 @@ export const Container = styled.div`
         grid-area: scissors;
     `} 
 
+    ${props => props.gp.gp.name === 'DUMMY' && `
+        /* border: 1px yellow solid; */
+        grid-area: dummy;
+    `} 
+
+
     &:hover {
         /* border: 4px limegreen solid; */
         box-shadow: 0 0px 0px 20px rgba(255, 255, 255, 0.08    );
@@ -100,12 +155,22 @@ export const OuterCircle = styled.div`
     justify-content: center;
 `
 
+// export const dummyCircle = styled.div`
+//     grid-area: dummy;
+//     width: 100px;
+//     height: 100px;
+//     border-radius: 50%;
+//     background: dodgerblue; 
+//     margin-top: 15px;
+// `
+
 export const InnerCircleAccent = styled.div`
     width: 100px;
     height: 100px;
     border-radius: 50%;
     background: ${COLOR_SCHEME.PLAYER_PIECE_BG_ACCENT}; 
     margin-top: 15px;
+    background: ${props => props.gp.gp.name === "DUMMY" ? '#16223C' : null};
 `
 
 export const InnerCircle = styled.div`
@@ -114,7 +179,7 @@ export const InnerCircle = styled.div`
     border-radius: 50%;
     background: ${COLOR_SCHEME.PLAYER_PIECE_BG};
     margin-top: 5px;
-    
+    background: ${props => props.gp.gp.name === "DUMMY" ? '#16223C' : null};
 `
 
 export const Logo = styled.img`

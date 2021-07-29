@@ -4,21 +4,21 @@ import { useGamepieceData, useIsLoading } from '../context/GamepieceContext'
 import { useGamemode } from '../context/GamemodeContext'
 
 export default function GameboardContainer( {children, ...restProps}) {
-    const isLoading = useIsLoading();
-    const gamepieces = useGamepieceData();
-    let currentGamepieces = []
-    const gamemode = useGamemode()
+    // const isLoading = useIsLoading();
+    // const gamepieces = useGamepieceData();
+    // let currentGamepieces = []
+    // const gamemode = useGamemode()
     
 
 
-    if (isLoading) {
-        console.log('currenting loading data')
-    } else {
-        console.log('gamepieces = ', gamepieces)
-        console.log('gamemode = ', gamemode)
-        currentGamepieces = gamepieces.filter(gamepiece => gamepiece.game === gamemode)
-        console.log('currentGamepieces = ', currentGamepieces)
-    }
+    // if (isLoading) {
+    //     console.log('currenting loading data')
+    // } else {
+    //     console.log('gamepieces = ', gamepieces)
+    //     console.log('gamemode = ', gamemode)
+    //     currentGamepieces = gamepieces.filter(gamepiece => gamepiece.game === gamemode)
+    //     console.log('currentGamepieces = ', currentGamepieces)
+    // }
 
 
     return (        

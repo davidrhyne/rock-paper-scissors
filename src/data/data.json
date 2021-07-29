@@ -30,6 +30,16 @@
     "defeats": ["scissors", "lizard"]
   },
   {
+    "name": "DUMMY",
+    "game":"classic",
+    "x":"35%",
+    "y":"60%", 
+    "piece_accent":"",
+    "piece_start":"",
+    "piece_end":"",
+    "defeats": ["scissors", "lizard"]
+  },
+  {
     "name": "SPOCK",
     "game":"bonus",
     "x":"150px",

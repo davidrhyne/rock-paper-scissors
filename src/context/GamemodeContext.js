@@ -17,8 +17,8 @@ export function GamemodeContextProvider({children}) {
 
     const [gamemode, setGamemode] = useState('classic')
 
-    function updateGamemode(newPlanet) {
-        setGamemode(newPlanet)
+    function updateGamemode(newValue) {
+        setGamemode(newValue)
     }
 
     return (
